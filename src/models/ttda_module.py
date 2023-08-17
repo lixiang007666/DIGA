@@ -1702,7 +1702,7 @@ class DIGA(LightningModule):
 		if not hasattr(self, "classifier_running_proto"):
 			self.classifier_running_proto, self.classifier_running_proto_exists_flag = proto, exists_flag
 		else:
-			self.classifier_running_proto, self.classifier_running_proto_exists_flag = self._update_classifier_proto(feature, y, self.classifier_running_proto, self.classifier_running_proto_exists_flag, cfg.proto_rho)
+			self.classifier_running_proto, self.classifier_running_proto_exists_flag = self._update_classifier_proto(feature, proto_label, self.classifier_running_proto, self.classifier_running_proto_exists_flag, cfg.proto_rho)
 		# make prediction
 		instance_pred = self.cal_pred_of_proto(feature, proto, exists_flag)
 		mean_pred = self.cal_pred_of_proto(feature, self.classifier_running_proto, self.classifier_running_proto_exists_flag)
